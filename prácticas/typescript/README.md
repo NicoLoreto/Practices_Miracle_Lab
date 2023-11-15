@@ -1,4 +1,39 @@
 # Typescript
+
+## Ejercicio 1
+
+Armar una función que reciba dos cadenas. Una de las cadenas son joyas que representan los tipos de piedras preciosas que tenemos. La otra cadena reporesenta las piedras es un tipo que tenemos. Quieremos saber cuántas de las piedras son también joyas.
+
+<pre>
+console.assert(myFunction("aA", "aAAbbbb") === 3);
+console.assert(myFunction("z", "ZZ") === 0);
+</pre>
+
+## Ejercicio 2
+
+1. Vamos a implementar el juego de Code Breaker. El juego comienza generando un número al azar de cuatro dígitos. Cada dígito puede tener un valor entre 0 y 6.
+
+2. El usuario ingresa un número intentando adivinar el número secreto.
+
+3. Si alguno de los números concuerda en la posición original, se muestra una X.
+
+4. Si alguno de los números no concuerda con la posición original, pero está en el número secreto en otra posición, muestra un -.
+
+5. El orden en que se muestran es el siguiente: XX- (primero las X y luego los -)
+
+6. Ejemplo:
+
+<pre>
+Número secreto: 2561
+Primer intento: 1334
+Salida: -
+Segundo intento: 4251
+Salida: X--
+Tercer intento: 6521
+Salida: XX--
+</pre>
+
+
 ## Ejercicio 2.1
 
 TypeScript es inteligente sobre los posibles tipos de una variable.
@@ -266,4 +301,94 @@ console.log('[Ejercicio 3.3]', `zoologico vale ${computeScore('zoo')} puntos.`);
 
 1 Añadir anotaciones de tipo siempre que sea posible.
 
+## Ejercicio 3.4
 
+Dado el siguiente codigo:
+
+<pre>
+ function greet(greeting) {
+   return greeting.toUpperCase();
+ }
+
+ const defaultGreeting = greet();
+ const portugueseGreeting = greet('Oi como vai!');
+
+ console.log('[Ejercicio 3.4]', defaultGreeting, portugueseGreeting);
+</pre>
+
+1 Añadir tipos explícitos a los parámetros y tipo de retorno
+2 Añadir un saludo predeterminado: ”hola”
+
+## Ejercicio 3.5
+
+<pre>
+function layEggs(quantity, color) {
+  console.log(`[Ejercicio 3.5] Acabas de poner ${quantity} huevos ${color}. Buen trabajo!`);
+}
+
+layEggs();
+</pre>
+
+1 Añadir anotación de tipo de parámetro
+
+2 A pesar de que esta función no vuelve, agregue un tipo de retorno explícito
+
+## Ejercicio 3.6
+
+Aquí hemos inicializado dos variables con tipos de funciones. Posteriormente les asignamos
+funciones.
+
+<pre>
+let multiply: (val1: number, val2: number) => number;
+let capitalize: (val: string) => string;
+
+multiply = function (x: number, y: number): number {
+  return x * y;
+}
+
+capitalize = function (value: string): string {
+  return `${value.charAt(0).toUpperCase()}${value.slice(1)}`;
+}
+
+console.log('[Ejercicio 3.6]', capitalize(`habil ${multiply(5, 10)}`));
+</pre>
+
+1 Arreglar los errores
+
+## Ejercicio 3.7
+
+Actualmente, nuestra función ‘pushToCollection‘ acepta *cualquier* elemento y lo agrega, (indiscriminadamente) a *cualquier* tipo de matriz. Un par de problemas con esto:
+
+1 El tipo ‘any‘ hace que perdamos toda la información de tipos en nuestros parámetros.
+
+2 Esta holgura se ha vuelto en nuestra contra durante el tiempo de ejecución (mira a ‘incrementByTwo‘)
+
+Dado el siguiente codigo:
+
+<pre>
+const numberCollection: number[] = [];
+const stringCollection: string[] = [];
+
+function pushToCollection(item, collection) {
+  collection.push(item);
+  return collection;
+}
+
+// Añadir algunas cosas a las colecciones
+pushToCollection(false, stringCollection);
+pushToCollection('hi', stringCollection);
+pushToCollection([], stringCollection);
+
+pushToCollection('1', numberCollection);
+pushToCollection('2', numberCollection);
+pushToCollection('3', numberCollection);
+
+const incrementedByTwo = numberCollection.map((num) => num + 2);
+
+console.log('[Ejercicio 3.7]', `[${incrementedByTwo}] debe ser igual a [3, 4, 5]`);
+</pre>
+
+1 Implementar ‘pushToCollection‘ como una función genérica. (Esto debería crear errores en tiempo de compilación en lugares donde se agregan valores incorrectos a una colección determinada. Fije estos valores a los tipos correctos)
+
+2 Una vez hecho genérico, ‘pushToCollection‘ debe ser suficientemente *generic* para operar
+en artículos y colecciones de cualquier tipo mientras se continúa aplicando que conicida.
