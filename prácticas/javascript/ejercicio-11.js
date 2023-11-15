@@ -1,15 +1,23 @@
-function onlyUniques (...arg) {
+function onlyUniques(...arg) {
+  let newArray = [];
 
-    let newArray = [];
+  for (elemento of arg) {
+    newArray.includes(elemento) ? '' : newArray.push(elemento);
+  }
 
-    for (elemento of arg) {
+  return newArray;
+}
 
-        newArray.includes(elemento) ? '' : newArray.push(elemento);
+// Solution 2
 
-    };
+function onlyUniquesTwo(...arg) {
+  let newSet = new Set(arg);
 
-    return newArray;
+  let toArray = [...newSet];
 
+  return toArray;
 }
 
 console.log(onlyUniques(1, 2, 2, 'name', 5, 1, 5, 7, 'lastname', 'name'));
+
+console.log(onlyUniquesTwo(1, 2, 2, 'name', 5, 1, 5, 7, 'lastname', 'name'));
