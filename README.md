@@ -1,5 +1,15 @@
-## Breve presentación
+## Miracle Lab Practices
 
-Mi nombre es Nicolás Loreto. Soy desarrollador frontend y músico compositor. Me interesa aprender continuamente y trabajar en equipo.
+The exercises are related to: 
 
-14:26 hs.
+- Data-structure
+- Algorithms 
+- Functional-programming
+- Typescript
+- Node
+- Express
+- Javascript
+- Jest 
+- Postman 
+- React
+- Sass
