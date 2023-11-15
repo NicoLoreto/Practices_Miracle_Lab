@@ -392,3 +392,12 @@ console.log('[Ejercicio 3.7]', `[${incrementedByTwo}] debe ser igual a [3, 4, 5]
 
 2 Una vez hecho genérico, ‘pushToCollection‘ debe ser suficientemente *generic* para operar
 en artículos y colecciones de cualquier tipo mientras se continúa aplicando que conicida.
+
+## Juego de cartas
+
+Vamos a crear un juego de cartas en el cual cada jugador saca una carta del mazo y el que obtiene el número más alto gana.
+
+1. Tener en cuenta que al sacar una carta del mazo, no puede salir la misma carta, por lo
+menos mientras se este utilizando ese mazo.
+
+2. Las cartas que saca cada jugador deben salir en orden aleatorio.
