@@ -1,47 +1,40 @@
-function palabraMasLarga (str) {
+function palabraMasLarga(str) {
+  if (typeof str != 'string') {
+    return 'Solo se permiten palabras';
+  }
 
-    if (typeof str != 'string') {
+  let arr = str.split(' ');
 
-        return 'Solo se permiten palabras';
+  let palabraMayor = '';
 
-    };
+  for (palabra of arr) {
+    palabraMayor.length > palabra.length
+      ? palabraMayor
+      : (palabraMayor = palabra);
+  }
 
-    let arr = str.split(' ');
-
-    let palabraMayor = '';
-
-    for (palabra of arr) {
-
-        palabraMayor.length > palabra.length ? palabraMayor : palabraMayor = palabra;
-
-    };
-
-    return palabraMayor;
-
+  return palabraMayor;
 }
 
 console.assert(palabraMasLarga('Erase una vez que se era') === 'Erase');
 
-// 
+//
 
-function primeraMayuscula (str) {
+function primeraMayuscula(str) {
+  if (typeof str != 'string') {
+    return 'Solo se permiten palabras';
+  }
 
-    if (typeof str != 'string') {
+  let arr = str.split(' ');
+  let string = [];
 
-        return 'Solo se permiten palabras';
+  for (palabra of arr) {
+    string.push(palabra.charAt(0).toUpperCase() + palabra.slice(1));
+  }
 
-    };
-
-    let arr = str.split(' ');
-    let string = [];
-
-    for (palabra of arr) {
-
-        string.push(palabra.charAt(0).toUpperCase() + palabra.slice(1));
-
-    };
-
-    return string.join(' ');
+  return string.join(' ');
 }
 
-console.assert(primeraMayuscula('En un lugar de la Mancha') === 'En Un Lugar De La Mancha');
+console.assert(
+  primeraMayuscula('En un lugar de la Mancha') === 'En Un Lugar De La Mancha'
+);

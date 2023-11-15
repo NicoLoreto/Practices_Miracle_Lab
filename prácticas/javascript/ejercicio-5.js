@@ -1,27 +1,21 @@
-function camelize (str) {
+function camelize(str) {
+  if (typeof str != 'string') {
+    return 'No es una cadena de caracteres';
+  }
 
-    if (typeof str != 'string') {
+  let arr = str.split(' ');
 
-        return 'No es una cadena de caracteres';
+  let aMayuscula = [];
 
-    };
+  for (palabra of arr) {
+    aMayuscula.push(palabra.charAt(0).toUpperCase() + palabra.slice(1));
+  }
 
-    let arr = str.split(' ');
+  let string = aMayuscula.join('');
 
-    let aMayuscula = [];
+  let camelCase = string.charAt(0).toLowerCase() + string.slice(1);
 
-    for (palabra of arr) {
-
-        aMayuscula.push(palabra.charAt(0).toUpperCase() + palabra.slice(1));
-
-    };
-
-    let string = aMayuscula.join('');
-
-    let camelCase = string.charAt(0).toLowerCase() + string.slice(1);
-
-    return camelCase;
-
+  return camelCase;
 }
 
 console.assert(camelize('Hola a todos que tal') === 'holaATodosQueTal');
