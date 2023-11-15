@@ -1,4 +1,4 @@
-# JavaScript
+# Typescript
 ## Ejercicio 2.1
 
 TypeScript es inteligente sobre los posibles tipos de una variable.
