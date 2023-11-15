@@ -173,5 +173,97 @@ dos tipos nuevos: ‘BirdLike‘ y ‘FishLike‘ basados en estos rasgos
 3 Use ‘instanceof‘ en ‘interrogateAnimal‘ para permitir a los peces nadar y a los pájaros
 volar
 
-4 Agregue cualquier anotación de tipo faltante, siendo lo más explícito posible
+4 Agregue cualquier anotación de tipo faltante, siendo lo más explícito posible.
+
+### Funciones
+## Ejercicio 3.1
+
+Dado el siguiente codigo:
+
+<pre>
+
+ function add(x, y) {
+    return x + y;
+ }
+
+ function sumArray(numbers) {
+    return numbers.reduce(add, 0);
+ }
+
+ const someSum = sumArray(['3', '6', '9']);
+
+ console.log('[Ejercicio 3.1]', `3 + 6 + 9 === ${someSum}`);
+
+ </pre>
+
+1 Agregue tipos explícitos a los parámetros y el tipo de retorno
+
+2 Solucione cualquier error resultante de tipos inválidos
+
+## Ejercicio 3.2
+
+Dado el siguiente codigo:
+
+<pre>
+
+ const bankAccount = {
+    money: 0,
+    deposit(value, message) {
+        this.money += value;
+        if (message) {
+            console.log(message);
+        }
+    }
+ };
+
+bankAccount.deposit(20);
+
+bankAccount.deposit(10, 'Deposit received')
+
+console.log('[Exercise 3.2]', `Account value: $${bankAccount.money}`);
+
+</pre>
+
+1 Agregue tipos explícitos a los parámetros y el tipo de retorno a la funcion ‘deposit‘
+
+2 Haz que el parámetro de ‘message‘ sea *optional*
+
+## Ejercicio 3.3
+
+Para una palabra dada, calculamos su puntuación en Scrabble®
+
+<pre>
+
+function computeScore(word) {
+    const letters = word.toUpperCase().split('');
+    return letters.reduce((accum, curr) => accum += getPointsFor(curr), 0);
+}
+
+function getPointsFor(letter) {
+    const lettersAndPoints = [
+        ['AEOIULNRST', 1],
+        ['DG', 2],
+        ['BCMP', 3],
+        ['FHVWY', 4],
+        ['K', 5],
+        ['JX', 8],
+        ['QZ', 10],
+    ];
+
+    return lettersAndPoints.reduce((computedScore, pointsTuple) => {
+        const [letters, score] = pointsTuple;
+        if (letters.split('').find((ll) => ll === letter)) {
+            return computedScore += score;
+        }
+        return computedScore;
+    }, 0);
+}
+
+console.log('[Ejercicio 3.3]', `zoologico vale ${computeScore('zoo')} puntos.`);
+
+
+</pre>
+
+1 Añadir anotaciones de tipo siempre que sea posible.
+
 
