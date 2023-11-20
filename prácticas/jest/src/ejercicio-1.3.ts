@@ -1,31 +1,30 @@
 export function adn(string: string): string {
+  if (string === "") {
+    return "";
+  }
 
-    if (!string) {
-        return '';
+  const array = string.split("");
+
+  const adnArray = [];
+
+  for (const i of array) {
+    switch (i) {
+      case "C":
+        adnArray.push(i);
+        continue;
+      case "T":
+        adnArray.push(i);
+        continue;
+      case "A":
+        adnArray.push(i);
+        continue;
+      case "G":
+        adnArray.push(i);
+        continue;
     }
+  }
 
-    const array = string.split('');
-
-    const adnArray = [];
-
-    for (const i of array) {
-
-        if (i === 'C') {
-            adnArray.push(i);
-        }
-        if (i === 'T') {
-            adnArray.push(i);
-        }
-        if (i === 'A') {
-            adnArray.push(i);
-        }
-        if (i === 'G') {
-            adnArray.push(i);
-        }
-    }
-
-
-    return adnArray.join('');
+  return adnArray.join("");
 }
 
-adn('CTAGGasdQWEdGTA');
+adn("CTAGGasdQWEdGTA");
