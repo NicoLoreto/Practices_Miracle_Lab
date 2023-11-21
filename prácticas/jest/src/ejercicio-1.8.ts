@@ -1,24 +1,26 @@
-interface Item {
-    name: string,
-    price: number;
+interface IItem {
+  name: string;
+  price: number;
+}
+
+class Item implements IItem {
+  public name: string;
+  public price: number;
+  constructor(name: string, price: number) {
+    this.name = name;
+    this.price = price;
+  }
 }
 
 export const setPrice = (item: Item, price: number): object => {
-
-    const newObject = new Object({
-        name: item.name,
-        price: price
-    });
-    return newObject;
+  const newItem: IItem = new Item(item.name, price);
+  return newItem;
 };
 
-export const addToCart = (cart: string[], item: object): string[] => {
+export const addToCart = (cart: string[], item: IItem): IItem[] => {
+  const newArray: IItem[] = [];
 
+  newArray.push(item);
 
-    const newArray: string[] = [];
-
-    newArray.push(item as keyof object);
-
-    return newArray;
-
+  return newArray as IItem[];
 };
