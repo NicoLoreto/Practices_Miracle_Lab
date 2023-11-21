@@ -10,14 +10,8 @@ export function adn(string: string): string {
   for (const i of array) {
     switch (i) {
       case "C":
-        adnArray.push(i);
-        continue;
       case "T":
-        adnArray.push(i);
-        continue;
       case "A":
-        adnArray.push(i);
-        continue;
       case "G":
         adnArray.push(i);
         continue;
